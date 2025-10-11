@@ -1,0 +1,13 @@
+# azure.yaml
+# Azure Developer CLI (azd) configuration file
+# See: https://docs.microsoft.com/azure/developer/azure-developer-cli/azd-schema
+
+name: aiml-landing-zone
+metadata:
+  template: aiml-landing-zone@1.0.0
+services: {}
+
+infra:
+  provider: bicep
+  path: ./infra
+  module: main
