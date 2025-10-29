@@ -88,11 +88,11 @@ param privateDnsZoneIds = {
   appConfig: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.azconfig.io'
   containerApps: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.uaenorth.azurecontainerapps.io'
   containerRegistry: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.azurecr.io'
-  
+
   // Machine Learning DNS Zones (for AI Hub and Project access)
   machineLearning: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.api.azureml.ms'
   notebooks: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.notebooks.azure.net'
-  
+
   // Observability DNS Zones
   appInsights: '/subscriptions/6a53819a-8f7f-4191-a477-43ce91269baa/resourceGroups/rg-elayyans-connect-dns-uksouth-001/providers/Microsoft.Network/privateDnsZones/privatelink.monitor.azure.com'
 }
@@ -111,25 +111,25 @@ param logAnalyticsWorkspaceResourceId = '/subscriptions/b01b834b-ecec-45bd-8335-
 param deployToggles = {
   // Core AI Services
   aiFoundry: true
-  openAiModels: false  // Enabled to deploy the configured models
-  
+  openAiModels: false // Enabled to deploy the configured models
+
   // Data Services  
   aiSearch: true
   cosmosDb: true
   keyVault: true
   storageAccount: true
-  
+
   // Container Services
   containerAppsEnvironment: false
   containerApps: false
-  
+
   // Observability
-  applicationInsights: false  // Set to true when feature is registered
-  
+  applicationInsights: false // Set to true when feature is registered
+
   // Networking & Security
   applicationGateway: false
   wafPolicy: false
-  
+
   // DNS & Private Endpoints
   dnsVnetLinks: true
   privateEndpoints: true
@@ -145,15 +145,22 @@ param models = [
     name: 'gpt-4o'
     version: '2024-08-06'
     deploymentName: 'gpt-4o'
-    capacity: 10
-    sku: 'GlobalStandard'  // Pay-as-you-go pricing
+    capacity: 1
+    sku: 'GlobalStandard' // Pay-as-you-go pricing
   }
   {
     name: 'text-embedding-3-large'
     version: '1'
     deploymentName: 'text-embedding-3-large'
-    capacity: 10
-    sku: 'GlobalStandard'  // Pay-as-you-go pricing
+    capacity: 1
+    sku: 'Standard' // Pay-as-you-go pricing
+  }
+  {
+    name: 'whisper'
+    version: '001'
+    deploymentName: 'whisper'
+    capacity: 1
+    sku: 'Standard' // Pay-as-you-go pricing
   }
   // Note: Whisper model removed as it's not available in UAE North region
   // Whisper is only available in West Europe with Standard SKU (regional deployment)

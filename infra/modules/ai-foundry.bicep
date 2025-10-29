@@ -53,8 +53,8 @@ param models array = [
 
 var aiHubName = 'aih-${baseName}-${environment}'
 var aiProjectName = 'aip-${baseName}-${environment}'
-var aiServicesName = 'ais-${baseName}-${environment}'
-var openAiName = 'oai-${baseName}-${environment}'
+var aiServicesName = 'ais-${baseName}-${environment}01'
+var openAiName = 'oai-${baseName}-${environment}01'
 
 // ============================================================================
 // Azure AI Services (Multi-service account)
